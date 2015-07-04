@@ -9,7 +9,7 @@ var message = buf.toString();
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function(request, response) {
+app.get('/', function(request, response, message) {
   response.send('Hello World2!')
   responde.send(message);
 })
