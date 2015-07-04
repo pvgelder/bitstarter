@@ -3,16 +3,17 @@ var app = express();
 
 var fs = require('fs');
 //var buf = new Buffer(fs.readFileSync('index.html');
-var buf = fs.readFileSync('index.html');
-var message = buf.toString();
+//var buf = fs.readFileSync('./index.html');
+//var message = buf.toString();
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function(request, response, message) {
+app.get('/', function(request, response) {
 //  response.send('Hello World2!')
-  response.send(message);
+//  response.send(message);
   //response.send('done?');
+  response.send(fs.readFileSync('./index.html').toString());
 })
 
 app.listen(app.get('port'), function() {
